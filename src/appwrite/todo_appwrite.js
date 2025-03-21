@@ -23,7 +23,7 @@ export class AppwriteTodo{
         }
     }
 
-    async createTodo(userId , title,name){
+    async createTodo(userId , title,name=userId.name){
         try {
             const data = await this.database.createDocument(
                 config.appwriteDatabaseId,
