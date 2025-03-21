@@ -7,8 +7,8 @@ import appwritetodo from "../appwrite/todo_appwrite";
     });
 
     // Create Todo
-    export const createTodos = createAsyncThunk('todos/createTodo', async ({ userId, title }) => {
-        return await appwritetodo.createTodo(userId, title);
+    export const createTodos = createAsyncThunk('todos/createTodo', async ({ userId, title,name }) => {
+        return await appwritetodo.createTodo(userId, title,name);
     });
 
     // Delete Todo
