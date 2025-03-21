@@ -1,13 +1,16 @@
 
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
+import { checkAuthSession } from './store/authstore';
 
 function App() {
-// const dispatch = useDispatch()
-//   useEffect(() => {
-//     dispatch(checkAuthSession()); // Check session on app load
-// }, [dispatch]);
+const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(checkAuthSession()); // Check session on app load
+}, [dispatch]);
 
 
   return (

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import auth from "../appwrite/auth";
 
 const initialState={
     status:false,
@@ -23,18 +24,18 @@ const authslice=createSlice({
 
 })
 
-// export const checkAuthSession = () => async (dispatch) => {
-//     try {
-//         const user = await auth.getUser(); // Fetch user from Appwrite
-//         if (user) {
-//             dispatch(login(user));  // Restore session
-//         } else {
-//             dispatch(logout());  // No session, ensure logout
-//         }
-//     } catch (error) {
-//         console.error("Error checking session:", error);
-//     }
-// };
+export const checkAuthSession = () => async (dispatch) => {
+    try {
+        const user = await auth.getUser(); // Fetch user from Appwrite
+        if (user) {
+            dispatch(login(user));  // Restore session
+        } else {
+            dispatch(logout());  // No session, ensure logout
+        }
+    } catch (error) {
+        console.error("Error checking session:", error);
+    }
+};
 
 export const {login, logout} =authslice.actions
 export default authslice.reducer
