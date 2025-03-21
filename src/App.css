@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+/* Thin scrollbar for WebKit browsers (Chrome, Safari, Opera) */
+.thin-scrollbar::-webkit-scrollbar {
+    width: 2px; /* Width of the scrollbar */
+  }
+  
+  .thin-scrollbar::-webkit-scrollbar-track {
+    background: transparent; /* Transparent track */
+  }
+  
+  .thin-scrollbar::-webkit-scrollbar-thumb {
+    background: #4a5562; /* Color of the scrollbar thumb */
+    border-radius: 1px; /* Rounded corners */
+  }
+  
+  .thin-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #c8c9cc; /* Color of the scrollbar thumb on hover */
+  }
+  
+  /* Thin scrollbar for Firefox */
+  .thin-scrollbar {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: #d5d7dc transparent; /* Thumb and track color */
+  }
+
+  /* Add this to your global CSS file */
+.transition-all {
+  transition: all 0.3s ease-in-out;
+}
+
+.translate-x-0 {
+  transform: translateX(0);
+}
+
+.-translate-x-full {
+  transform: translateX(-100%);
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+.horizontal-scroll-container {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.icon-container {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.transition-opacity {
+  transition: opacity 0.2s ease-in-out 0.1s; /* Delay of 0.1s */
+}
