@@ -11,12 +11,14 @@ function Sidebar({ selectedTodo, activeTodoId, isSidebarOpen, setIsSidebarOpen }
   const [isAddingTodo, setIsAddingTodo] = useState(false);
   const [newTodoTitle, setNewTodoTitle] = useState('');
   const [editingTodoId, setEditingTodoId] = useState(null);
+  const userData = useSelector((state) => state.auth.userData);
+  const userId = userData?.$id; // Extract the user ID
   const [editTitle, setEditTitle] = useState('');
   const [openMenuId, setOpenMenuId] = useState(null);
 
   useEffect(() => {
-    dispatch(fetchTodos('userId'));
-  }, [dispatch]);
+    dispatch(fetchTodos(userId));
+  }, [dispatch, userId]);
 
   const handleAddTodo = () => setIsAddingTodo(true);
 
