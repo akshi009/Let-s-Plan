@@ -15,13 +15,11 @@ export class AppwriteTodo{
             const response = await this.database.listDocuments(
                 config.appwriteDatabaseId,
                 config.appwritetodoCollectionId,
-                [Query.equal('userId',userId)]
-            )
-            return response.documents
-            
+                [Query.equal('userId', userId)]
+            );
+            return response.documents;
         } catch (error) {
-            console.log(error,': from todo appwrite')
-            
+            console.log(error, ': from todo appwrite');
         }
     }
 

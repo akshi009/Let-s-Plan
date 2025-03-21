@@ -24,7 +24,7 @@ function Sidebar({ selectedTodo, activeTodoId, isSidebarOpen, setIsSidebarOpen }
 
   const handleSubmitTodo = () => {
     if (newTodoTitle.trim()) {
-      dispatch(createTodos({ userId: 'userId', title: newTodoTitle }));
+      dispatch(createTodos({ userId: userId, title: newTodoTitle }));
       setNewTodoTitle('');
       setIsAddingTodo(false);
     }
