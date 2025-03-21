@@ -113,7 +113,7 @@ function Sidebar({ selectedTodo, activeTodoId, isSidebarOpen, setIsSidebarOpen }
               </button>
             )}
 
-            <div className="mt-4 overflow-y-auto max-h-[calc(100vh-220px)]">
+            <div className="mt-4 overflow-y-auto h-96 thin-scrollbar">
               {todos.length > 0 ? (
                 <ul className="space-y-2">
                   {todos.map((todo) => (

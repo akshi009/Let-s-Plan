@@ -89,10 +89,10 @@ const SubtaskList = ({ taskId }) => {
           }}
         >
           {/* Input area with notepad styling */}
-          <div className="md:px-4 px-2 z-0 mb-6 flex items-center gap-2 border-b-2 border-blue-300">
+          <div className="md:px-4 px-2 z-0 mb-6 flex justify-between items-center border-b-2 border-blue-300">
             <input
               type="text"
-              className="flex-grow py-2 bg-transparent focus:border-blue-500 outline-none placeholder-gray-500"
+              className=" py-2 xl:w-1/2 bg-transparent focus:border-blue-500 outline-none placeholder-gray-500"
               placeholder="Write a new task..."
               value={newSubtask}
               onChange={(e) => setNewSubtask(e.target.value)}
