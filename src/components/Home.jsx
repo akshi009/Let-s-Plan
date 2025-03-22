@@ -1,31 +1,20 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import TaskList from './TaskList';
+import Login from './login';
 
 function Home() {
   const [selectedTodo, setSelectedTodo] = useState(null);
   const auth = useSelector((state) => state.auth.status);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const navigate = useNavigate()
+  
   // const [activeTodoId, setActiveTodoId] = useState(null);
 
   if (!auth) {
     return (
-      <div className="bg-gradient-to-r from-blue-900 to-indigo-900 h-screen flex items-center justify-center text-white">
-        <div className="bg-slate-800 p-8 rounded-lg shadow-xl text-center">
-          <h1 className="text-3xl font-bold mb-4">Not Logged In</h1>
-          <p className="mb-6">Please log in or sign up to access your todos</p>
-          <div className="flex gap-4 justify-center">
-            <button onClick={()=>navigate('/login')}  className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-md transition-colors">
-              Login
-            </button>
-            <button onClick={()=>navigate('/signup')}  className="bg-indigo-600 hover:bg-indigo-700 px-6 py-2 rounded-md transition-colors">
-              Sign Up
-            </button>
-          </div>
-        </div>
+      <div >
+       <Login/>
       </div>
     );
   }

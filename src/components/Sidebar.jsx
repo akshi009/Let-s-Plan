@@ -1,6 +1,6 @@
 import { Menu, MoreVertical, X } from "lucide-react";
 import React, { useEffect, useState } from 'react';
-import { FaCheck, FaEdit, FaPlus, FaTimes, FaTrash } from 'react-icons/fa';
+import { FaCheck, FaPlus, FaTimes } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { createTodos, deleteTodos, fetchTodos, updateTodo } from '../store/todoSlice';
 import Logout from './Logout';
@@ -189,7 +189,7 @@ function Sidebar({ selectedTodo, activeTodoId, isSidebarOpen, setIsSidebarOpen }
                                 }}
                                 className="w-full text-left p-2 hover:bg-gray-700 transition-colors flex items-center"
                               >
-                                <FaEdit className="mr-2 text-blue-400" /> Edit
+                                 Edit
                               </button>
                               <button
                                 onClick={(e) => {
@@ -198,7 +198,7 @@ function Sidebar({ selectedTodo, activeTodoId, isSidebarOpen, setIsSidebarOpen }
                                 }}
                                 className="w-full text-left p-2 hover:bg-gray-700 transition-colors flex items-center"
                               >
-                                <FaTrash className="mr-2 text-red-400" /> Delete
+                                 Delete
                               </button>
                             </div>
                           )}
