@@ -119,13 +119,17 @@ function Sidebar({ selectedTodo, activeTodoId, isSidebarOpen, setIsSidebarOpen }
               {todos.length > 0 ? (
                 <ul className="space-y-2">
                   {todos.map((todo) => (
-                    <li
-                      key={todo.$id}
-                      className={`group p-3 cursor-pointer rounded transition-all duration-200 flex items-center justify-between ${
-                        activeTodoId === todo.$id ? 'bg-gray-700 shadow-md' : 'hover:bg-gray-700'
-                      }`}
-                      onClick={() => selectedTodo(todo.$id)}
-                    >
+                   <li
+                   key={todo.$id}
+                   className={`group p-3 cursor-pointer rounded transition-all duration-200 flex items-center justify-between ${
+                     activeTodoId === todo.$id ? 'bg-gray-700 shadow-md' : 'hover:bg-gray-700'
+                   }`}
+                   onClick={() => {
+                     selectedTodo(todo.$id);
+                     setIsSidebarOpen(!isSidebarOpen)
+                   }}
+                 >
+                 
                       {editingTodoId === todo.$id ? (
                         <input
                           type="text"
