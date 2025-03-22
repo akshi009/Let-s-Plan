@@ -62,7 +62,7 @@ function Sidebar({ selectedTodo, activeTodoId, isSidebarOpen, setIsSidebarOpen }
   return (
     <div className={`fixed left-0 top-0  h-screen ${isSidebarOpen ? " z-50 md:w-0 w-full md:z-0" : "z-0"}`}>
       <button 
-        className="fixed top-4 left-4 p-2 z-100 focus:outline-none "
+        className=" fixed  top-4 left-4 p-2 z-100 focus:outline-none "
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
       >
         {isSidebarOpen ? <X size={24} className="text-white" /> : <Menu size={24} />}

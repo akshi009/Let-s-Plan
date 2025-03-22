@@ -53,6 +53,7 @@ export class AppwriteTodo{
     async updateTodo(todoId,title)
     {
        
+       
         try {
             const newtitle = await this.database.updateDocument(
                 config.appwriteDatabaseId,
@@ -107,8 +108,9 @@ export class AppwriteTodo{
     }
     async updateTask(taskId,title,color ,Date ,DueDate)
     {
-       
+        console.log(title.typeof,"type1")
         try {
+            console.log(title.typeof,"type2")
             const newtitle = await this.database.updateDocument(
                 config.appwriteDatabaseId,
                 config.appwritetaskCollectionId,
@@ -117,7 +119,7 @@ export class AppwriteTodo{
             )
             return newtitle
         } catch (error) {
-            console.log(error,': from task appupdate updateTodo')
+            console.log(error,': from task appupdate updateTask')
         }
     }
 

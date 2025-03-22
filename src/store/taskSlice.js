@@ -23,6 +23,7 @@ export const deleteTask = createAsyncThunk("tasks/deleteTask", async (taskId) =>
 
 // Update task ( Pass updated title & color)
 export const updateTask = createAsyncThunk("tasks/updateTask", async ({ taskId, title, color }) => {
+    console.log(title.typeof,"type3")
     await appwritetodo.updateTask(taskId, title, color);
     return { taskId, title, color };
 });

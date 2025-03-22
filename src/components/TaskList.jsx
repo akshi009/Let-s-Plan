@@ -57,14 +57,17 @@ function TaskList({ todoId, isSidebarOpen }) {
 
   const deleteTaskList = (taskId) => {
     if (window.confirm("Are you sure you want to delete this task?")) {
-      dispatch(deleteTask(taskId));
+      console.log('test 1')
       dispatch(deleteSubTask(taskId));
+      console.log('test 2')
+      dispatch(deleteTask(taskId));
+      console.log('test 3')
     }
   };
 
   const handleEditStart = (task) => {
     setEditingTaskId(task.$id);
-    setEditText(task.title);
+    setEditText(String(task.title));
     setSelectedColor(task.color || "#FEFCE8");
   };
 
@@ -73,12 +76,12 @@ function TaskList({ todoId, isSidebarOpen }) {
       alert("Task title must be between 1 and 3000 characters");
       return;
     }
-
+console.log(editText);
     try {
-      await appwritetodo.updateTask(taskId, { 
-        title: editText,
-        color: selectedColor,
-      });
+      await appwritetodo.updateTask(taskId, 
+        editText,
+       selectedColor,
+      );
       dispatch(updateTask({ 
         taskId, 
         title: editText,
@@ -99,34 +102,34 @@ function TaskList({ todoId, isSidebarOpen }) {
   //   if (todoId) dispatch(fetchTasks(todoId));
   // }, [dispatch, todoId]);
 
-  // const todos = useSelector((state) => state.tasks.items);
+  const todos = useSelector((state) => state.todos.items);
 
-  // const selectedtodo = todos.find((todo) => todo.$id === todoId);
+  const selectedtodo = todos.find((todo) => todo.$id === todoId);
 
-  // if (!selectedtodo) {
-  //   return (
-  //     <div className={`rounded-lg min-h-screen transition-all duration-300 ease-in-out ${isSidebarOpen ? 'md:ml-72' : 'ml-0'}`}>
-  //       <div className="text-center py-16 bg-white rounded-lg shadow-md">
-  //         <svg
-  //           xmlns="http://www.w3.org/2000/svg"
-  //           className="h-16 w-16 mx-auto mb-4 text-gray-400"
-  //           fill="none"
-  //           viewBox="0 0 24 24"
-  //           stroke="currentColor"
-  //         >
-  //           <path
-  //             strokeLinecap="round"
-  //             strokeLinejoin="round"
-  //             strokeWidth={1}
-  //             d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-  //           />
-  //         </svg>
-  //         <p className="text-lg">Todo not found</p>
-  //         <p className="mt-1">Please select a valid todo.</p>
-  //       </div>
-  //     </div>
-  //   );
-  // }
+  if (!selectedtodo) {
+    return (
+      <div className={`rounded-lg min-h-screen transition-all duration-300 ease-in-out ${isSidebarOpen ? 'md:ml-72' : 'ml-0'}`}>
+        <div className="text-center py-16 bg-white rounded-lg shadow-md">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-16 w-16 mx-auto mb-4 text-gray-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={1}
+              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+            />
+          </svg>
+          <p className="text-lg">Todo not found</p>
+          <p className="mt-1">Please select a valid todo.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div 
@@ -134,14 +137,14 @@ function TaskList({ todoId, isSidebarOpen }) {
         isSidebarOpen ? 'md:ml-72' : 'ml-0'
       }`}
     >
-      <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-8">
+      <div className="flex flex-col  md:flex-row md:justify-between md:items-center mb-8">
        
-        <h2 className="text-2xl font-bold text-gray-800 mb-4 md:mb-0 mx-9">My Task</h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-4 md:mb-0 mx-10">{selectedtodo.title}</h2>
         
         {!isAddingTask && (
           <button
             onClick={handleAddTaskClick}
-            className="bg-blue-600 hover:bg-blue-700 cursor-pointer text-white px-6 py-3 rounded-lg shadow-md flex items-center text-center transition-all transform  duration-200"
+            className="bg-blue-600 justify-center hover:bg-blue-700 cursor-pointer text-white px-6 py-3 rounded-lg shadow-md flex items-center text-center transition-all transform  duration-200"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

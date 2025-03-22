@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import appwritetodo from "../appwrite/todo_appwrite";
-import { createSubTask, deleteSubTask, updateSubTask } from "../store/subtaskSlice";
+import { updateSubTask } from "../store/subtaskSlice";
 
 const SubtaskList = ({ taskId }) => {
   const [subtasks, setSubtasks] = useState([]);
@@ -11,20 +11,30 @@ const SubtaskList = ({ taskId }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchSubtasks();
+    if (taskId) {
+     fetchSubtasks();
+    }
+    
   }, []);
 
   const fetchSubtasks = async () => {
-    const data = await appwritetodo.getSubTask(taskId);
-    setSubtasks(data);
+    try {
+      const data = await appwritetodo.getSubTask(taskId);
+      setSubtasks(data);
+    } catch (error) {
+      console.error("Error fetching subtasks:", error);
+    }
   };
 
   // Add Subtask
   const handleAddSubtask = async () => {
     if (!newSubtask.trim()) return;
-
+console.log('test1')
     const subtask = await appwritetodo.addSubTask(taskId, newSubtask);
-    dispatch(createSubTask(subtask));
+    
+console.log('after test1')
+
+    // dispatch(createSubTask(subtask));
 
     setSubtasks([...subtasks, subtask]);
     setNewSubtask("");
@@ -33,7 +43,7 @@ const SubtaskList = ({ taskId }) => {
   // Delete Subtask
   const handleDeleteSubtask = async (subtaskId) => {
     await appwritetodo.deleteSubTask(subtaskId);
-    dispatch(deleteSubTask(subtaskId));
+    // dispatch(deleteSubTask(subtaskId));
 
     setSubtasks(subtasks.filter((sub) => sub.$id !== subtaskId));
   };
@@ -89,23 +99,31 @@ const SubtaskList = ({ taskId }) => {
           }}
         >
           {/* Input area with notepad styling */}
-          <div className="md:px-4 px-2 z-0 mb-6 flex justify-between items-center border-b-2 border-blue-300">
+          <div className="md:px-4 z-0 mb-6 flex justify-between items-center border-b-2 border-blue-300">
+           
+<div className="w-auto">
             <input
               type="text"
-              className=" py-2 xl:w-1/2 bg-transparent focus:border-blue-500 outline-none placeholder-gray-500"
-              placeholder="Write a new task..."
+              className=" py-2  w-3/4 md:w-full bg-transparent focus:border-blue-500 outline-none placeholder-gray-500"
+              placeholder="Let's Plan..."
               value={newSubtask}
               onChange={(e) => setNewSubtask(e.target.value)}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   e.preventDefault();
+                  console.log('enter')
                   handleAddSubtask();
+                  
                 }
               }}
               style={{ fontFamily: "'Comic Sans MS', cursive, sans-serif" }}
             />
+            <div>
+            </div>
+            </div>
+<div>
             <button
-              className="text-gray-500  py-2 rounded-full hover:text-blue-500 cursor-pointer transition-colors duration-200"
+              className="text-gray-500 md:bg-transparent mr-10 py-2 rounded-full hover:text-blue-500 cursor-pointer transition-colors duration-200 w-full"
               onClick={handleAddSubtask}
             >
               <svg
@@ -121,6 +139,8 @@ const SubtaskList = ({ taskId }) => {
                 />
               </svg>
             </button>
+            </div>
+            
           </div>
 
           {/* Tasks list */}
@@ -191,6 +211,7 @@ const SubtaskList = ({ taskId }) => {
                           }`}
                           style={{ fontFamily: "'Comic Sans MS', cursive, sans-serif" }}
                         >
+                         
                           {sub.content.length > 15 ? `${sub.content.substring(0, 10)}...` : sub.content}
                         </span>
                       )}
