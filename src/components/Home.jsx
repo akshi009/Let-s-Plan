@@ -38,7 +38,7 @@ function Home() {
       isSidebarOpen={isSidebarOpen}
       setIsSidebarOpen={setIsSidebarOpen} />
       
-      <div className="md:flex-1 md:p-6 overflow-auto p-4 bg-gray-200 ">
+      <div className="md:flex-1 h-screen md:p-6 overflow-auto p-4 bg-gray-200 ">
         {selectedTodo ? (
           <TaskList todoId={selectedTodo}  isSidebarOpen={isSidebarOpen}/>
         ) : (

@@ -123,7 +123,7 @@ console.log('after test1')
             </div>
 <div>
             <button
-              className="text-gray-500 md:bg-transparent mr-10 py-2 rounded-full hover:text-blue-500 cursor-pointer transition-colors duration-200 w-full"
+              className="text-gray-500 md:bg-transparent mr-5 py-2 rounded-full hover:text-blue-500 cursor-pointer transition-colors duration-200 w-full"
               onClick={handleAddSubtask}
             >
               <svg
@@ -155,7 +155,7 @@ console.log('after test1')
             <ul className="space-y-2  h-40 overflow-y-auto overflow-x-hidden thin-scrollbar">
               {subtasks.map((sub) => (
                 <li key={sub.$id} className="group">
-                  <div className="flex items-center py-1 hover:bg-gray-50 rounded px-2">
+                  <div className="flex items-center py-1 hover:bg-gray-50 rounded ">
                     {/* Custom checkbox with pencil mark effect */}
                     <div className="flex-shrink-0 mr-3">
                       <div
@@ -206,14 +206,18 @@ console.log('after test1')
                         />
                       ) : (
                         <span
-                          className={ `flex-1 truncate max-w-[10ch] ${
-                            sub.complete ? "line-through text-gray-500" : "text-gray-800"
-                          }`}
-                          style={{ fontFamily: "'Comic Sans MS', cursive, sans-serif" }}
-                        >
-                         
-                          {sub.content.length > 15 ? `${sub.content.substring(0, 10)}...` : sub.content}
-                        </span>
+                        className={`max-w-xs break-words whitespace-normal ${
+                          sub.complete ? "line-through text-gray-500" : "text-gray-800"
+                        }`}
+                        style={{
+                          fontFamily: "'Comic Sans MS', cursive, sans-serif",
+                          wordBreak: "break-word", // Ensures long words break
+                          overflowWrap: "break-word", // Helps with breaking words properly
+                        }}
+                      >
+                        {sub.content}
+                      </span>
+                      
                       )}
                     </div>
 
