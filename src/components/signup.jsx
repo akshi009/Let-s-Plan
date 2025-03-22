@@ -29,9 +29,9 @@ function Signup() {
     }
     
     return (
-        <section className="justify-center h-screen items-center flex flex-col bg-gradient-to-br from-blue-50 to-indigo-100">
-            <div className="md:w-1/2 flex items-center justify-center p-6 md:p-6">
-                <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-6 md:p-8">
+        <section className="justify-center  h-screen items-center flex flex-col bg-gradient-to-br from-blue-50 to-indigo-100">
+            <div className="md:w-1/2  items-center  justify-center ">
+                <div className="w-full max-w-xl bg-white rounded-2xl shadow-xl p-6 md:p-8">
                     <div className="text-center mb-6">
                         <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Create account</h2>
                         <p className="text-gray-600 mt-2">Sign up to start managing your notes</p>
