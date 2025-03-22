@@ -90,7 +90,7 @@ console.log('after test1')
     <div className="mx-auto max-w-2xl">
       {/* Notepad container with shadow and paper effect */}
       <div>
-        {/* Content area with blue lines background pattern */}
+       
         <div
           className="relative  py-2"
           style={{
@@ -101,10 +101,10 @@ console.log('after test1')
           {/* Input area with notepad styling */}
           <div className="md:px-4 z-0 mb-6 flex justify-between items-center border-b-2 border-blue-300">
            
-<div className="w-auto">
+<div className="w-full">
             <input
               type="text"
-              className=" py-2  w-3/4 md:w-full bg-transparent focus:border-blue-500 outline-none placeholder-gray-500"
+              className=" py-2  w-full md:w-full bg-transparent focus:border-blue-500 outline-none placeholder-gray-500"
               placeholder="Let's Plan..."
               value={newSubtask}
               onChange={(e) => setNewSubtask(e.target.value)}
@@ -152,7 +152,7 @@ console.log('after test1')
              
             </div>
           ) : (
-            <ul className="space-y-2  h-40 overflow-y-auto overflow-x-hidden thin-scrollbar">
+            <ul className="space-y-2 md:h-40 h-60 overflow-y-auto overflow-x-hidden thin-scrollbar">
               {subtasks.map((sub) => (
                 <li key={sub.$id} className="group">
                   <div className="flex items-center py-1 hover:bg-gray-50 rounded ">

@@ -126,7 +126,8 @@ function Sidebar({ selectedTodo, activeTodoId, isSidebarOpen, setIsSidebarOpen }
                    }`}
                    onClick={() => {
                      selectedTodo(todo.$id);
-                     setIsSidebarOpen(!isSidebarOpen)
+                     if (window.innerWidth < 768)
+                    { setIsSidebarOpen(!isSidebarOpen)}
                    }}
                  >
                  
@@ -215,7 +216,7 @@ function Sidebar({ selectedTodo, activeTodoId, isSidebarOpen, setIsSidebarOpen }
             </div>
           </div>
           
-          <div className="absolute  left-0 right-0 bottom-0">
+          <div className="absolute  left-0 right-0 bottom-10">
             <Logout />
           </div>
         </div>
