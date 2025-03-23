@@ -8,6 +8,7 @@ const SubtaskList = ({ taskId }) => {
   const [newSubtask, setNewSubtask] = useState("");
   const [editingSubtaskId, setEditingSubtaskId] = useState(null);
   const [editText, setEditText] = useState("");
+  // const[done,setDone]=useState(false)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -76,14 +77,17 @@ console.log('after test1')
   };
 
   // Handle Checkbox Click (UI Only)
-  const handleSubtaskClick = (subtask) => {
+  const handleSubtaskClick = async(subtask) => {
     if (editingSubtaskId === subtask.$id) return;
+    const updateComplete = !subtask.complete
 
     // Update UI state only
-    const updatedSubtasks = subtasks.map((sub) =>
-      sub.$id === subtask.$id ? { ...sub, complete: !sub.complete } : sub
-    );
-    setSubtasks(updatedSubtasks);
+   try {
+    await appwritetodo.updateSubTask(subtask.$id,subtask.content,updateComplete)
+   setSubtasks((prev)=> prev.map((sub)=>sub.$id ===subtask.$id ? {...sub, complete:updateComplete}:sub))
+   } catch (error) {
+    console.log(error);
+   }
   };
 
   return (
@@ -227,7 +231,7 @@ console.log('after test1')
                         /* Edit mode buttons */
                         <div className="flex">
                           <button
-                            className="ml-1 p-1 rounded-full bg-green-100 text-green-600"
+                            className="ml-1 p-1 rounded-full cursor-pointer bg-green-100 text-green-600"
                             onClick={(e) => {
                               e.stopPropagation();
                               handleEditSave(sub.$id);
@@ -248,7 +252,7 @@ console.log('after test1')
                             </svg>
                           </button>
                           <button
-                            className="ml-1 p-1 rounded-full bg-gray-100 text-gray-500"
+                            className="ml-1 p-1 rounded-full cursor-pointer bg-gray-100 text-gray-500"
                             onClick={(e) => {
                               e.stopPropagation();
                               handleEditCancel();
@@ -273,7 +277,7 @@ console.log('after test1')
                         /* Normal mode buttons - Always visible with subtle styling */
                         <div className="flex">
                           <button
-                            className="ml-1 p-1 rounded-full text-gray-300 hover:bg-blue-100 hover:text-blue-500"
+                            className="ml-1 p-1 cursor-pointer rounded-full text-gray-300 hover:bg-blue-100 hover:text-blue-500"
                             onClick={(e) => {
                               e.stopPropagation();
                               handleEditStart(sub);
@@ -290,7 +294,7 @@ console.log('after test1')
                             </svg>
                           </button>
                           <button
-                            className="ml-1 p-1 rounded-full text-gray-300 hover:bg-red-100 hover:text-red-500"
+                            className="ml-1 p-1 cursor-pointer rounded-full text-gray-300 hover:bg-red-100 hover:text-red-500"
                             onClick={(e) => {
                               e.stopPropagation();
                               handleDeleteSubtask(sub.$id);

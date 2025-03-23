@@ -148,7 +148,7 @@ export class AppwriteTodo{
 
     async addSubTask(taskId, content) { // Default color is gray
         try {
-            console.log("🟢 Adding subtask:", { taskId, content });
+            console.log("🟢 Adding subtask:", { taskId, content,complete:false });
             const task = await this.database.createDocument(
                 config.appwriteDatabaseId,
                 config.appwritesubtaskCollectionId,
@@ -156,7 +156,7 @@ export class AppwriteTodo{
                 {
                     taskId,
                     content,
-                    complete: false,  // Default value
+                    complete:false  // Default value
                                 
                 }
             );
@@ -181,7 +181,7 @@ export class AppwriteTodo{
     }
 
 
-    async updateSubTask(subtaskId,content)
+    async updateSubTask(subtaskId,content,complete)
     {
        
         try {
@@ -189,7 +189,7 @@ export class AppwriteTodo{
                 config.appwriteDatabaseId,
                 config.appwritesubtaskCollectionId,
                 subtaskId,
-                {content}
+                {content,complete: Boolean(complete)}
             )
             return newtitle
         } catch (error) {
