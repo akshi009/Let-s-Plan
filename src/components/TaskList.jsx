@@ -227,8 +227,8 @@ console.log(editText);
               {tasks.map((task) =>
                 task && task.$id ? (
                   <SwiperSlide key={task.$id}>
-                    <div className="mx-auto w-full mb-10">
-                      <div className="rounded-lg shadow-lg relative overflow-hidden transform transition-transform "
+                    <div className="mx-auto w-full  mb-10">
+                      <div className="rounded-lg  shadow-lg relative overflow-hidden transform transition-transform "
                          style={{ backgroundColor: task.color || "#FEFCE8" }}>
                         {/* Red margin line on left */}
                         <div className="absolute left-8 top-0 bottom-0 w-px bg-red-300"></div>
