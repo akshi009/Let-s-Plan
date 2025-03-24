@@ -17,7 +17,7 @@ function Signup() {
     const signup = async (data) => {
         setError('');
         try {
-            const session = await auth.signup(data);
+            const session = await auth.Signup(data);
             if (session) {
                 const userData = await auth.getUser();
                 if (userData) dispatch(authLogin(userData));
