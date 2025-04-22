@@ -15,7 +15,7 @@ function Logout() {
 
   return (
     <button
-    className="px-4 py-4  bottom-10 bg-gray-800 w-full  hover:bg-red-500 duration-300 ease-in-out transition cursor-pointer"
+    className="px-4 py-4 z-10  bottom-10 bg-gray-800 w-full  hover:bg-red-500 duration-300 ease-in-out transition cursor-pointer"
      onClick={logoutbutton}
      >Logout
      </button>
