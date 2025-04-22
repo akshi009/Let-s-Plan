@@ -13,6 +13,8 @@ function Sidebar({ selectedTodo, activeTodoId, isSidebarOpen, setIsSidebarOpen }
   const [editingTodoId, setEditingTodoId] = useState(null);
   const userData = useSelector((state) => state.auth.userData);
   const userId = userData?.$id; // Extract the user ID
+  const email = userData.email
+
   const [editTitle, setEditTitle] = useState('');
   const [openMenuId, setOpenMenuId] = useState(null);
 
@@ -214,6 +216,10 @@ function Sidebar({ selectedTodo, activeTodoId, isSidebarOpen, setIsSidebarOpen }
                 </div>
               )}
             </div>
+          </div>
+          <div className="absolute left-0 mx-2 bottom-30">
+            {email}
+          
           </div>
           
           <div className="absolute  left-0 right-0 bottom-10">
