@@ -10,12 +10,14 @@ function Login() {
     const dispatch = useDispatch()
     const [error, setError] = useState()
     const { register, handleSubmit, formState: { errors } } = useForm()
+    const[loading,setLoading]=useState(false)
 
     // Default notepad color
     const [notepadColor, setNotepadColor] = useState("#FEFCE8")
     // const notepadBorderColor = "#8B5CF6" // Purple border to match the color
 
     const login = async (data) => {
+      setLoading(true)
       setError('')
       try {
         const session = await auth.login(data)
@@ -29,6 +31,9 @@ function Login() {
       } catch (error) {
         setError(error.message)
         console.log(error)
+      }
+      finally{
+        setLoading(false)
       }
     }
 
@@ -131,7 +136,7 @@ function Login() {
                 type="submit"
                 className="w-full cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-all duration-200 shadow-md"
               >
-                Sign in
+                {loading?<div>Loading...</div>:<div>Sign In</div>}
               </button>
             </form>
 

@@ -13,14 +13,18 @@ function Signup() {
 
     // Default notepad color
     const [notepadColor, setNotepadColor] = useState("#F1F8E8");
+    const [loading,setLoading]=useState(false)
 
     const signup = async (data) => {
+        setLoading(true)
         setError('');
         try {
             const session = await auth.Signup(data);
             if (session) {
                 const userData = await auth.getUser();
-                if (userData) dispatch(authLogin(userData));
+                if (userData) {dispatch(authLogin(userData));}
+                // else setLoading(true)
+
                 navigate('/');
             } else {
                 setError('Invalid credentials');
@@ -29,10 +33,15 @@ function Signup() {
             setError(error.message);
             console.log(error, ': In signup');
         }
+        finally{
+            setLoading(false)
+        }
     };
 
     return (
+        
         <section className="flex justify-center bg-gray-100 h-screen items-center p-4">
+           
             <div className="w-full max-w-md mx-auto">
                 {/* Notepad-style container */}
                 <div className="rounded-lg shadow-lg relative overflow-hidden" 
@@ -148,12 +157,12 @@ function Signup() {
                                     </div>
                                 </div>
                             )}
-
+                            
                             <button
                                 type="submit"
                                 className="w-full cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-all duration-200 shadow-md"
                             >
-                                Create Account
+                               {loading ? <div>Loading...</div>:<div>Create Account</div>} 
                             </button>
                         </form>
 
