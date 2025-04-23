@@ -183,7 +183,7 @@ console.log(editText);
                   }
                 }}
                 style={{ 
-                  fontFamily: "'Comic Sans MS', cursive, sans-serif",
+                  fontFamily: "'Bodyhand', cursive, sans-serif",
                   // backgroundColor: selectedColor,
                 }}
                 autoFocus
@@ -269,7 +269,7 @@ console.log(editText);
                                   className="w-full py-2 px-3 bg-transparent border-b-2 border-blue-300 focus:border-blue-500 outline-none"
                                   maxLength={3000}
                                   autoFocus
-                                  style={{ fontFamily: "'Comic Sans MS', cursive, sans-serif" }}
+                                  style={{ fontFamily: "'Bodyhand', cursive, sans-serif" }}
                                 />
                                 
                                 <div className="flex gap-2">
@@ -290,7 +290,7 @@ console.log(editText);
                             ) : (
                               <div className="relative ">
                               <h2 className="text-2xl z-50 font-bold text-gray-800 pr-16" 
-                                  style={{ fontFamily: "'Comic Sans MS', cursive, sans-serif" }}>
+                                  style={{ fontFamily: "'Bodyhand', cursive, sans-serif" }}>
                                 {task.title}
                               </h2>
                               
@@ -402,7 +402,7 @@ console.log(editText);
                               className="w-full py-2 px-3 bg-transparent border-b-2 border-blue-300 focus:border-blue-500 outline-none"
                               maxLength={3000}
                               autoFocus
-                              style={{ fontFamily: "'Comic Sans MS', cursive, sans-serif" }}
+                              style={{ fontFamily: "'Bodyhand', cursive, sans-serif" }}
                             />
                             
                             <div className="flex gap-2">
@@ -423,7 +423,7 @@ console.log(editText);
                         ) : (
                           <div className="relative">
                           <h2 className="text-2xl font-bold text-gray-800 pr-16" 
-                              style={{ fontFamily: "'Comic Sans MS', cursive, sans-serif" }}>
+                              style={{ fontFamily: "'Bodyhand', cursive, sans-serif" }}>
                             {task.title}
                           </h2>
                           

@@ -64,7 +64,7 @@ function Login() {
             {/* Login header */}
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-gray-800" 
-                  style={{ fontFamily: "'Comic Sans MS', cursive, sans-serif" }}>
+                  style={{ fontFamily: "'Bodyhand', cursive, sans-serif" }}>
                 Welcome Back!
               </h2>
               <p className="mt-2 text-gray-600">
@@ -83,7 +83,7 @@ function Login() {
                   type="email"
                   placeholder="name@company.com"
                   className="w-full px-4 py-2 bg-white bg-opacity-70 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-200 outline-none"
-                  style={{ fontFamily: "'Comic Sans MS', cursive, sans-serif" }}
+                  style={{ fontFamily: "'Bodyhand', cursive, sans-serif" }}
                   {...register("email", {
                     required: "Email is required",
                     validate: {
@@ -107,7 +107,7 @@ function Login() {
                   type="password"
                   placeholder="••••••••"
                   className="w-full px-4 py-2 bg-white bg-opacity-70 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-200 outline-none"
-                  style={{ fontFamily: "'Comic Sans MS', cursive, sans-serif" }}
+                  style={{ fontFamily: "'Bodyhand', cursive, sans-serif" }}
                   {...register("password", {
                     required: "Password is required"
                   })}

@@ -67,7 +67,7 @@ function Signup() {
                         {/* Signup header */}
                         <div className="text-center mb-8">
                             <h2 className="text-3xl font-bold text-gray-800" 
-                                style={{ fontFamily: "'Comic Sans MS', cursive, sans-serif" }}>
+                                style={{ fontFamily: "'Bodyhand', cursive, sans-serif" }}>
                                 Create Account
                             </h2>
                             <p className="mt-2 text-gray-600">
@@ -86,7 +86,7 @@ function Signup() {
                                     type="text"
                                     placeholder="John Doe"
                                     className="w-full px-4 py-2 bg-white bg-opacity-70 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-200 outline-none"
-                                    style={{ fontFamily: "'Comic Sans MS', cursive, sans-serif" }}
+                                    style={{ fontFamily: "'Bodyhand', cursive, sans-serif" }}
                                     {...register("name", {
                                         required: "Name is required"
                                     })}
@@ -105,7 +105,7 @@ function Signup() {
                                     type="email"
                                     placeholder="name@company.com"
                                     className="w-full px-4 py-2 bg-white bg-opacity-70 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-200 outline-none"
-                                    style={{ fontFamily: "'Comic Sans MS', cursive, sans-serif" }}
+                                    style={{ fontFamily: "'Bodyhand', cursive, sans-serif" }}
                                     {...register("email", {
                                         required: "Email is required",
                                         validate: {
@@ -129,7 +129,7 @@ function Signup() {
                                     type="password"
                                     placeholder="••••••••"
                                     className="w-full px-4 py-2 bg-white bg-opacity-70 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-200 outline-none"
-                                    style={{ fontFamily: "'Comic Sans MS', cursive, sans-serif" }}
+                                    style={{ fontFamily: "'Bodyhand', cursive, sans-serif" }}
                                     {...register("password", {
                                         required: "Password is required",
                                         minLength: {

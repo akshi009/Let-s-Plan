@@ -120,7 +120,7 @@ console.log('after test1')
                   
                 }
               }}
-              style={{ fontFamily: "'Comic Sans MS', cursive, sans-serif" }}
+              style={{ fontFamily: "'Bodyhand', cursive, sans-serif" }}
             />
             <div>
             </div>
@@ -151,7 +151,7 @@ console.log('after test1')
           {subtasks.length === 0 ? (
             <div
               className="px-4 py-8 text-center text-gray-500 italic h-40"
-              style={{ fontFamily: "'Comic Sans MS', cursive, sans-serif" }}
+              style={{ fontFamily: "'Bodyhand', cursive, sans-serif" }}
             >
              
             </div>
@@ -206,7 +206,7 @@ console.log('after test1')
                           }}
                           autoFocus
                           onClick={(e) => e.stopPropagation()}
-                          style={{ fontFamily: "'Comic Sans MS', cursive, sans-serif" }}
+                          style={{ fontFamily: "'Bodyhand', cursive, sans-serif" }}
                         />
                       ) : (
                         <span
@@ -214,7 +214,7 @@ console.log('after test1')
                           sub.complete ? "line-through text-gray-500" : "text-gray-800"
                         }`}
                         style={{
-                          fontFamily: "'Comic Sans MS', cursive, sans-serif",
+                          fontFamily: "'Bodyhand', cursive, sans-serif",
                           wordBreak: "break-word", // Ensures long words break
                           overflowWrap: "break-word", // Helps with breaking words properly
                         }}
@@ -326,7 +326,7 @@ console.log('after test1')
           {/* Page number at bottom */}
           <div
             className="mt-8 text-center text-gray-400 italic"
-            style={{ fontFamily: "'Comic Sans MS', cursive, sans-serif" }}
+            style={{ fontFamily: "'Bodyhand', cursive, sans-serif" }}
           >
             - {subtasks.length} items -
           </div>
